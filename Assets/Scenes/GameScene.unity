@@ -2882,7 +2882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1160410417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3440,7 +3440,7 @@ MonoBehaviour:
   cameraMaganer: {fileID: 375900081}
   positioningManager: {fileID: 2025750124}
   objectHelper: {fileID: 2025750123}
-  cameraHelper: {fileID: 0}
+  cameraHelperGameObject: {fileID: 375900077}
 --- !u!1 &1791601999
 GameObject:
   m_ObjectHideFlags: 0

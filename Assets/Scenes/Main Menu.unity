@@ -1650,12 +1650,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLatlong:
-    latitude: 26.40111957331405
-    longitude: 80.38604055118718
+    latitude: 26.50480558720385
+    longitude: 80.22932400842343
   cameraMaganer: {fileID: 1051876799}
   positioningManager: {fileID: 1597736555}
   objectHelper: {fileID: 1597736554}
-  cameraHelper: {fileID: 1597736561}
+  cameraHelperGameObject: {fileID: 1051876798}
 --- !u!4 &1559623845
 Transform:
   m_ObjectHideFlags: 0
@@ -1820,7 +1820,6 @@ GameObject:
   - component: {fileID: 1597736554}
   - component: {fileID: 1597736560}
   - component: {fileID: 1597736558}
-  - component: {fileID: 1597736561}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -1886,7 +1885,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1597736553}
   m_CameraFloorOffsetObject: {fileID: 1735677201}
   m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: -3
+  m_CameraYOffset: 0
 --- !u!114 &1597736558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,18 +1981,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1597736561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597736553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ecaa809467ed4a57b580caf6e7e4d4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1604037420
 GameObject:
   m_ObjectHideFlags: 0

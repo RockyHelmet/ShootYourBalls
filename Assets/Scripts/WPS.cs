@@ -2,6 +2,7 @@ using Niantic.Experimental.Lightship.AR.WorldPositioning;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.ARFoundation;
@@ -16,10 +17,17 @@ public class WPS : MonoBehaviour {
     [SerializeField] private ARCameraManager cameraMaganer;
     [SerializeField] private ARWorldPositioningManager positioningManager;
     [SerializeField] private ARWorldPositioningObjectHelper objectHelper;
-    [SerializeField] private ARWorldPositioningCameraHelper cameraHelper;
+    [SerializeField] private GameObject cameraHelperGameObject;
+
+    private ARWorldPositioningCameraHelper cameraHelper;
 
     private void Awake() {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        cameraHelper = cameraHelperGameObject.GetComponent<ARWorldPositioningCameraHelper>();
     }
 
     private void Update() {
@@ -28,6 +36,9 @@ public class WPS : MonoBehaviour {
                 UIManager.Instance.PlayGame();
             }
         }
+
+        Debug.Log("Lat : " + cameraHelper.Latitude);
+        Debug.Log("Long : " + cameraHelper.Longitude);
     }
 
     public GameObject SpawnObjectAtPositionFromCamera(GameObject objectPrefab, Vector3 position, double altitude = 0.0) {

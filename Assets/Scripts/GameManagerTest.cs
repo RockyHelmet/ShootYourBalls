@@ -109,7 +109,7 @@ public class GameManagerTest : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > 2f)
+            if (timer > 3f)
             {
                 numberOfBalls--;
                 StartCoroutine(LostCelebration());
@@ -139,7 +139,7 @@ public class GameManagerTest : MonoBehaviour
     private IEnumerator SpawnEverything()
     {
         yield return new WaitForSeconds(2f);
-        Vector3 spawnPos = cam.transform.position;
+        Vector3 spawnPos = cam.transform.position - Vector3.up.normalized;
 
         ARPlaneManager planeMgr = _XROriginGameObject.GetComponent<ARPlaneManager>();
         if (planeMgr != null)
@@ -155,6 +155,7 @@ public class GameManagerTest : MonoBehaviour
             }
         }
 
+        spawnPos = spawnPos - Vector3.up.normalized;
         Instantiate(planePrefab, spawnPos, Quaternion.identity);
         //lookDownCommandPanel.SetActive(false);
         spawningBallPanel.SetActive(true);
@@ -163,7 +164,7 @@ public class GameManagerTest : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         spawnPos = cam.transform.position + cam.transform.forward * 2f;
-        spawnPos.y = floorHeight + 1f;
+        spawnPos.y = floorHeight + 2f;
         spawnedBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
 
         spawningBallPanel.SetActive(false);
@@ -188,13 +189,13 @@ public class GameManagerTest : MonoBehaviour
         timer = 0f;
         if (isGameOver) yield break;
 
-        //yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);
         Destroy(spawnedBall);
         spawnedBall = null;
         yield return new WaitForSeconds(2f);
 
         Vector3 spawnPos = cam.transform.position + cam.transform.forward * 2f;
-        spawnPos.y = floorHeight + 1f;
+        spawnPos.y = floorHeight + 2f;
         spawnedBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
 
         currentRound++;
@@ -239,24 +240,40 @@ public class GameManagerTest : MonoBehaviour
     }
     IEnumerator GoalCelebration()
     {
-        BallManager bm = spawnedBall.GetComponent<BallManager>();
-        if (bm.hasWon && !bm.wasVictoryAlreadyConfirmed)
+        while (false)
         {
-            //wasVictoryAlreadyConfirmed = true;
-            GoalPanel.SetActive(true);
-            yield return new WaitForSeconds(2f);
-            GoalPanel.SetActive(false);
+            // For the love of Game Development, this is not a parody of a reality show. This is an actual game.
         }
+
+
+        //BallManager bm = spawnedBall.GetComponent<BallManager>();
+        //if (bm.hasWon && !bm.wasVictoryAlreadyConfirmed)
+        //{
+        //    //wasVictoryAlreadyConfirmed = true;
+        //    GoalPanel.SetActive(true);
+        //    yield return new WaitForSeconds(2f);
+        //    GoalPanel.SetActive(false);
+        //}
+
+        yield return null;
     }
     IEnumerator LostCelebration()
     {
-        BallManager bm = spawnedBall.GetComponent<BallManager>();
-        if (!bm.hasWon && !bm.wasVictoryAlreadyConfirmed)
+        while (false)
         {
-            //wasVictoryAlreadyConfirmed = true;
-            LostPanel.SetActive(true);
-            yield return new WaitForSeconds(2f);
-            LostPanel.SetActive(false);
+            // For the love of Game Development, do not spam this shitty animation and noise into anybody ever again
         }
+
+
+        //BallManager bm = spawnedBall.GetComponent<BallManager>();
+        //if (!bm.hasWon && !bm.wasVictoryAlreadyConfirmed)
+        //{
+        //    //wasVictoryAlreadyConfirmed = true;
+        //    LostPanel.SetActive(true);
+        //    yield return new WaitForSeconds(2f);
+        //    LostPanel.SetActive(false);
+        //}
+
+        yield return null;
     }
 }
